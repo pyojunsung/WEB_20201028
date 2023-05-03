@@ -10,6 +10,9 @@ function search_message(){
     else{
        alert("검색을 수행합니다!");
        search_array.push(search_str.value); // 배열에 검색어 추가
+       if(search_array.length > 10){ // 검색어 목록이 10개 이상인 경우 첫 번째 요소 제거
+           search_array.shift();
+       }
        let text = document.getElementById("search_message").innerHTML = search_array.toString(); // 값 변환
         document.querySelector("#form_main").submit();
     }
