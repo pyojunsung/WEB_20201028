@@ -14,7 +14,7 @@ function login(){
     }else{
         form.submit();
     }
-}
+
 function get_id(){
     var getParameters = function(paramName){ // 변수 = 함수(이름)
     var returnValue; // 리턴값을 위한 변수 선언
