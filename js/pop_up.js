@@ -29,7 +29,7 @@ function show_clock(){
 function setCookie(name, value, expiredays) {
         var date = new Date();
         date.setDate(date.getDate() + expiredays);
-        document.cookie = escape(name) + "=" + escape(value) + "; expires=" + date.toUTCString();        
+        document.cookie = escape(name) + "=" + escape(value) + "; expires=" + date.toUTCString() + "SameSite=None; Secure";        
     }
 
 function getCookie(name) {
@@ -48,9 +48,18 @@ function getCookie(name) {
         return ;
 }
 function closePopup() {
+    var checkbox = document.getElementById('check_popup');
+    if (checkbox && checkbox.checked) {
+        setCookie("popupYN", "N", 1);
+        console.log("쿠키를 설정합니다.");
+        self.close();
+    }
+}
+
+/* function closePopup() {
         if (document.getElementById('check_popup').value) {
             setCookie("popupYN", "N", 1);
             console.log("쿠키를 설정합니다.");
             self.close();
         }
-    }
+    } */

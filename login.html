@@ -16,8 +16,9 @@
 		<base href="https://web--kyjff.run.goorm.site/">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 		 <script type="text/javascript" src="../js/login.js" defer></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 	</head>
-	<body class="text-center">
+	<body class="text-center" onload="init();">
     <br><br><br>
     <main class="form-signin">
 		<div class="mx-auto" style="width:500px;"><a href="index.html"target="_blank">
@@ -35,7 +36,10 @@
 
         <div class="checkbox mb-3">
           <label>
-            <input type="checkbox" value="remember-me"> 아이디 기억
+           <div class="checkbox mb-3">
+     <label>
+        <input type="checkbox" value="remember-me" id="idSaveCheck"> 아이디 기억
+     </label> </div>
           </label>
         </div>
         <button class="w-100 btn btn-lg btn-primary" onclick="login()" type="button">로그인 하기</button>
