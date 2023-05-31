@@ -31,7 +31,7 @@ function login(){
     let password = document.querySelector("#floatingPassword");
     let check = document.querySelector("#idSaveCheck");
 
-    form.action = "../index_login.html";
+    form.action = "../index.html";
     form.method = "get";
         if(check.checked == true) { // 아이디 체크 o
             alert("쿠키를 저장합니다.");
@@ -50,7 +50,7 @@ function login(){
     }
 function logout(){
     session_del(); // 세션 삭제
-    location.href="../index.html";
+    location.href="../index_login.html";
 }
 
 function get_id(){
@@ -75,7 +75,31 @@ function get_id(){
 	}
 }; // 함수 끝
 	
-alert(getParameters('id') + '님 방갑습니다!'); // 메시지 창 출력
+alert(getParameters('id') + '님 방갑습니다!'); // 메시지 창 출력 
 
+function login_check() {
+    var id = getParameters('id');
+    var password = getParameters('password');
 
+    var emailRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{10,}$/;
+    var passwordRegex = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 
+    if (!emailRegex.test(id)) {
+        alert("이메일 형식이 올바르지 않습니다.");
+        return false;
+    }
+
+    if (!passwordRegex.test(password)) {
+        alert("패스워드 형식이 올바르지 않습니다.");
+        return false;
+    }
+
+    decrypt_text();
+    return true;
+}
+
+if (login_check()) {
+    alert(getParameters('id') + '님 방갑습니다!');
+} else {
+    alert('인증에 실패했습니다.');
+}
