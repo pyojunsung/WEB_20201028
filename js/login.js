@@ -23,7 +23,7 @@ function init(){ // 로그인 폼에 쿠키에서 가져온 아이디 입력
 }
 
 function login(){
-	location.href="../index.html";
+	location.href="../index_login.html";
 }
 
     let form = document.querySelector("#form_main");
@@ -50,7 +50,7 @@ function login(){
     }
 function logout(){
     session_del(); // 세션 삭제
-    location.href="../index_login.html";
+    location.href="../index.html";
 }
 
 function get_id(){
@@ -77,6 +77,11 @@ function get_id(){
 	
 alert(getParameters('id') + '님 방갑습니다!'); // 메시지 창 출력 
 
+function validateString(str) {
+    var regex = /^[A-Za-z\s]+$/;
+    return regex.test(str);
+}
+
 function login_check() {
     var id = getParameters('id');
     var password = getParameters('password');
@@ -91,6 +96,11 @@ function login_check() {
 
     if (!passwordRegex.test(password)) {
         alert("패스워드 형식이 올바르지 않습니다.");
+        return false;
+    }
+
+    if (!validateString(id)) {
+        alert("아이디에는 알파벳과 공백만 입력할 수 있습니다.");
         return false;
     }
 
