@@ -24,7 +24,15 @@ function init(){ // 로그인 폼에 쿠키에서 가져온 아이디 입력
 
 function login(){
 	location.href="../index_login.html";
-}
+	  login_count(); // 카운트 증가
+        session_set(); // 세션 생성
+        
+        setTimeout(function() {
+            logout(); // 5분 후 자동 로그아웃
+        }, 5 * 60 * 1000); 
+
+        form.submit();
+    }
 
     let form = document.querySelector("#form_main");
     let id = document.querySelector("#floatingInput");
@@ -50,7 +58,10 @@ function login(){
     }
 function logout(){
     session_del(); // 세션 삭제
-    location.href="../index.html";
+    deleteCookie("id"); // 쿠키 삭제
+    location.href = '../index.html';
+
+    logout_count();
 }
 
 function get_id(){
@@ -78,38 +89,26 @@ function get_id(){
 alert(getParameters('id') + '님 방갑습니다!'); // 메시지 창 출력 
 
 function validateString(str) {
-    var regex = /^[A-Za-z\s]+$/;
-    return regex.test(str);
+  var regex = /^[A-Za-z\s]+$/;
+  return regex.test(str);
 }
 
 function login_check() {
-    var id = getParameters('id');
-    var password = getParameters('password');
+  let emailRegex = /^[\w.-]+@[A-Za-z_-]+(?:\.[A-Za-z]+)+$/;
+  let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{10,}$/;
 
-    var emailRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{10,}$/;
-    var passwordRegex = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+  let email = document.querySelector("#email").value;
+  let password = document.querySelector("#password").value;
 
-    if (!emailRegex.test(id)) {
-        alert("이메일 형식이 올바르지 않습니다.");
-        return false;
-    }
+  if (!emailRegex.test(email)) {
+    alert("올바른 이메일 형식이 아닙니다.");
+    return false; // 로그인이 되지 않도록 함
+  }
 
-    if (!passwordRegex.test(password)) {
-        alert("패스워드 형식이 올바르지 않습니다.");
-        return false;
-    }
+  if (!passwordRegex.test(password)) {
+    alert("올바른 패스워드 형식이 아닙니다.");
+    return false; // 로그인이 되지 않도록 함
+  }
 
-    if (!validateString(id)) {
-        alert("아이디에는 알파벳과 공백만 입력할 수 있습니다.");
-        return false;
-    }
-
-    decrypt_text();
-    return true;
-}
-
-if (login_check()) {
-    alert(getParameters('id') + '님 방갑습니다!');
-} else {
-    alert('인증에 실패했습니다.');
+  login();
 }
