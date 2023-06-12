@@ -33,6 +33,13 @@ function login(){
 
         form.submit();
     }
+function logout(){
+    session_del(); // 세션 삭제
+    deleteCookie("id"); // 쿠키 삭제
+    location.href = '../index.html';
+
+    logout_count();
+}
 
     let form = document.querySelector("#form_main");
     let id = document.querySelector("#floatingInput");
@@ -56,13 +63,7 @@ function login(){
 		session_set(); // 세션 생성
         form.submit();
     }
-function logout(){
-    session_del(); // 세션 삭제
-    deleteCookie("id"); // 쿠키 삭제
-    location.href = '../index.html';
 
-    logout_count();
-}
 
 function get_id(){
 	if(true){
