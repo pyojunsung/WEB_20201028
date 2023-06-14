@@ -2,6 +2,59 @@
 웹프로그래밍(1) 소스코드
 ## 2023년 3월 22일 깃 허브 테스트 완료
 
+## 2주차
+저장소 만들기
+컨테이너 생성
+HTML 코드 살피기
+꾸글.com 구현
+
+## 3주차
+프레임 워크
+메타데이터, 하이퍼링크
+부트스트랩(기본 메뉴 바 추가)
+
+## 4주차
+부트스트랩 사용방법
+자바스크립트 사용방법
+
+## 5주차
+자바스크립트 변화
+자바스크립트 문법
+
+## 6주차
+웹 서비스 관련 이슈
+자바스크립트 문법(데이터 타입, 연산자, 문자열)
+
+## 7주차
+크롭 웹 브라우저
+자바스크립트 배열 사용 방법
+
+## 9주차
+사용자 인증, 데이터 전송
+폼 활용한 데이터 전송
+로그인 로그아웃
+
+## 10주차
+데이터 저장소
+Html 데이터 저장
+쿠키 팝업창
+
+## 11주차
+세션 보안 필요성
+로그인 로그아웃
+암호화 복호화
+
+## 12주차
+JS 클래스와 객체
+회원가입
+객체 리터럴
+Class 구현 방식
+
+## 13주차
+웹 지도 API
+지도 및 소개 페이지
+
+
 3주차 응용문제
 <td bgcolor="green" width="50"><b>영화</b></td><td width="80" bgcolor="blue">아저씨</td>
 <td width="80" bgcolor="blue">아저씨</td>
@@ -10,8 +63,8 @@
 	<td bgcolor="red">KPOP</td><td bgcolor="red">JPOP</td><td bgcolor="red">ROCK</td>
 	<td bgcolor="red">ROCK2</td><td rowspan="2">EUROBEAT</td></tr><! 2행추가>
 <tr bgcolor="red"><td colspan="2" width="50">게임</td><td>LOL</td><td>WOW</td><td>SUDDEN</td></tr><!3행 추가>
-<tr><td colspan = "6" width="100">외부 사이트 링크</td></tr>
-<tr><td colspan="2"><a href="https://www.naver.com/">네이버</a></td>
+<tr><td colspan = "6" width="100">외부 사s:이트 링크</td></tr>
+<tr><td colspan="2"><a href="http//www.naver.com/">네이버</a></td>
 	<td colspan="2" bgcolor="yellow"><a href="https://www.daum.net/">다음</a></td>
 	<td colspan="2" bgcolor="purple"><a href="https://www.nate.com/">네이트</a></td></tr>
 	
